@@ -81,9 +81,9 @@ def accept_credit_card(total):
     """
     # your code goes here!
     if (total > 5):
-        print ("This order is eligible for credit card payment ")
+        return True 
     else :
-        print ("This order is not eligible for credit card payment ")
+        return False
 
 
 
@@ -116,7 +116,10 @@ def print_order(order_list):
         print (order)
     price = get_total_price(order_list)
     print (price) 
-    accept_credit_card(price)
+    if accept_credit_card(price):
+        print ("you can pay with cridet ")
+    else:
+        print ("you can pay cash only")
     print ("Thank you for shopping at %s" % cupcake_shop_name)
 
 
