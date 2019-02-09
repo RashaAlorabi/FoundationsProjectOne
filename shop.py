@@ -4,7 +4,7 @@ menu = {
     "signature cupcake": 2.750,
     "coffee": 1,
     "tea": 0.900,
-    "bottled water": 0.750
+    "bottled water": 0.750,
 }
 original_flavors = ["vanilla", "chocolate", "strawberry", "caramel", "raspberry"]
 original_price = 2
@@ -23,13 +23,13 @@ def print_menu():
     # your code goes here!
     print ("Our menu:")
     for m in menu:
-        print ("-" + m + " KD %2d" % menu[m]) 
+        print ("-" + m + " KD %.2f" % menu[m]) 
 
 def print_originals():
     """
     Print the original flavor cupcakes.
     """
-    print("Our original flavor cupcakes (KD %s each):" % original_price)
+    print("Our original flavor cupcakes (KD %.2f each):" % original_price)
     # your code goes here!
     for flavor in original_flavors:
         print ("-" + flavor)
@@ -39,9 +39,9 @@ def print_signatures():
     """
     Print the signature flavor cupcakes.
     """
-    print("Our signature flavor cupcake (KD %s each):" % signature_price)
+    print("Our signature flavor cupcake (KD %.2f each):" % signature_price)
     # your code goes here!
-    for signat in original_flavors:
+    for signat in signature_flavors:
         print ("-" + signat)
 
 
@@ -71,7 +71,7 @@ def get_order():
         elif user_input == "Exit":
             break
         else: 
-            print("erorr")
+            user_input = input('Not in our mnue ,whats your order?')
     return order_list
 
 
@@ -92,14 +92,14 @@ def get_total_price(order_list):
     """
     Calculate and return total price of the order.
     """
-    total = 0
+    total = 0.0
     # your code goes here!
     for order in order_list:
         if (order in menu):
             total += menu[order]
         elif (order in original_flavors):
             total += original_price
-        elif (ordr in signature_flavors):
+        else :
             total += signature_price 
 
     return total
